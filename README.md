@@ -146,42 +146,57 @@ Edit
    ```bash
    git clone https://github.com/your-username/ipl-data-analysis-api.git
    cd ipl-data-analysis-api
-
-Set up a Python virtual environment:
+   ```
+2. Set up a Python virtual environment:
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies:
-
-bash
-Copy
-Edit
+```
+3. Install dependencies:
+ ```bash
 pip install flask pandas numpy
+```
+
 Usage
-Run the Flask application:
 
-bash
-Copy
-Edit
+1. Run the Flask application:
+
+ ```bash
 python app.py
-Access the API: Open your browser or use tools like Postman to interact with the following endpoints:
+```
 
-/: Returns a "Hello World" message.
-/api/teams: Get a list of all IPL teams.
-/api/teamvteam: Compare records between two teams.
-Query Parameters:
-team1 - First team name
-team2 - Second team name
-/api/team-record: Get a detailed record of a team.
-Query Parameter:
-team - Team name
-/api/batting-record: Get batting statistics for a player.
-Query Parameter:
-batsman - Player name
-/api/bowling-record: Get bowling statistics for a player.
-Query Parameter:
-bowler - Player name
+2. Access the API: Open your browser or use tools like Postman to interact with the following endpoints:
+
+### API Endpoints
+
+#### `/`
+- **Description**: Returns a "Hello World" message.
+
+#### `/api/teams`
+- **Description**: Get a list of all IPL teams.
+
+#### `/api/teamvteam`
+- **Description**: Compare records between two teams.
+- **Query Parameters**:
+  - `team1` - First team name
+  - `team2` - Second team name
+
+#### `/api/team-record`
+- **Description**: Get a detailed record of a team.
+- **Query Parameter**:
+  - `team` - Team name
+
+#### `/api/batting-record`
+- **Description**: Get batting statistics for a player.
+- **Query Parameter**:
+  - `batsman` - Player name
+
+#### `/api/bowling-record`
+- **Description**: Get bowling statistics for a player.
+- **Query Parameter**:
+  - `bowler` - Player name
+
 Data Sources
 The application uses public Google Sheets as its data source:
 
@@ -189,26 +204,21 @@ Match Data: Link to IPL matches data
 Ball-by-Ball Data: Link to IPL ball-by-ball data
 API Example Usage
 Get All Teams
-bash
-Copy
-Edit
+ ```bash
 GET http://127.0.0.1:5000/api/teams
+ ```
 Response:
-
-json
-Copy
-Edit
+  ```bash
 {
   "teams": ["Mumbai Indians", "Chennai Super Kings", "Royal Challengers Bangalore", ...]
 }
+ ```
 Compare Two Teams
-bash
-Copy
-Edit
+ ```bash
 GET http://127.0.0.1:5000/api/teamvteam?team1=Mumbai%20Indians&team2=Chennai%20Super%20Kings
-
+ ```
 Response:
-
+ ```bash
 {
   "total_matches": "36",
   "Mumbai Indians": "19",
